@@ -159,6 +159,21 @@ td.n{font-variant-numeric:tabular-nums; white-space:nowrap; font-family:"Barlow 
 .sig{border-left:3px solid var(--o); padding:6px 0 6px 22px; margin:24px 0}
 .sig .t{font-family:"Anton",sans-serif; text-transform:uppercase; font-size:1.5rem; color:var(--o)}
 
+.strip{display:flex; gap:14px; overflow-x:auto; padding:6px 2px 18px; scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch; cursor:grab; scrollbar-width:thin; scrollbar-color:var(--o) var(--panel)}
+.strip.drag{cursor:grabbing}
+.strip::-webkit-scrollbar{height:6px}
+.strip::-webkit-scrollbar-track{background:var(--panel)}
+.strip::-webkit-scrollbar-thumb{background:var(--o)}
+.pcard{flex:0 0 260px; scroll-snap-align:start; background:var(--panel); border:1px solid var(--line);
+  padding:26px 22px; display:flex; flex-direction:column; justify-content:space-between; min-height:170px;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s}
+.pcard:hover{transform:translateY(-5px); border-color:var(--o); background:#201d1b}
+.pcard .pn{font-family:"Anton",sans-serif; text-transform:uppercase; font-size:1.5rem; line-height:1; letter-spacing:.01em}
+.pcard .pm{color:#bdbdbd; font-size:.92rem; margin-top:10px; flex:1}
+.pcard .pt{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.18em;
+  font-size:.7rem; color:var(--o); margin-top:16px}
+
 /* MOTION */
 #prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--o); z-index:99; transition:width .1s linear}
 .rv{opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -239,7 +254,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 <nav id="rail">
   <a href="#intro">INTRO</a><a href="#who">WHO</a><a href="#standing">STANDING</a><a href="#record">RECORD</a>
   <a href="#road">ROAD</a><a href="#abudhabi">ABU DHABI</a><a href="#shows">SHOWS</a>
-  <a href="#screen">SCREEN</a><a href="#arabcollabs">ARAB</a><a href="#kitchen">KITCHEN</a><a href="#audience">AUDIENCE</a><a href="#arabic">ARABIC</a><a href="#press">PRESS</a>
+  <a href="#screen">SCREEN</a><a href="#partners">PARTNERS</a><a href="#kitchen">KITCHEN</a><a href="#audience">AUDIENCE</a><a href="#arabic">ARABIC</a><a href="#press">PRESS</a>
 </nav>
 
 <section class="hero" id="intro">
@@ -558,6 +573,14 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
       <tr><td>Brandon William</td><td>Training with the World's Heaviest Sumo Wrestlers</td><td class="n">1.7M</td><td class="n">2023</td></tr>
       <tr><td>Jesse James West</td><td>Training with the World's Heaviest Sumo Wrestlers</td><td class="n">846K</td><td class="n">2024</td></tr>
       <tr><td>Meetup</td><td>Meet the new Meetup</td><td class="n">334K</td><td class="n">2016</td></tr>
+      <tr><td>Amr Sherif, Adham and Morcos</td><td>The biggest pan of sogo&apos; and liver, on the tabliya</td><td class="n">768K</td><td class="n">2026</td></tr>
+      <tr><td>Amr Sherif</td><td>Imagine molokhia with wagyu sauce</td><td class="n">247K</td><td class="n">2026</td></tr>
+      <tr><td>Amr Sherif</td><td>The most delicious dish in the world is stuffed cabbage</td><td class="n">232K</td><td class="n">2026</td></tr>
+      <tr><td>Amr Sherif</td><td>The truth about blood coming out of meat</td><td class="n">202K</td><td class="n">2026</td></tr>
+      <tr><td>Amr Sherif, FoodCast</td><td>Between food, sumo and the MrBeast shoots</td><td class="n">131K</td><td class="n">2026</td></tr>
+      <tr><td>Amr Sherif</td><td>Chicken skin lovers gather here</td><td class="n">81K</td><td class="n">2026</td></tr>
+      <tr><td>Amr Sherif</td><td>We cook with love</td><td class="n">60K</td><td class="n">2026</td></tr>
+      <tr><td>Mina Jacob, Talks with MON</td><td>World Sumo Champion, his story and MrBeast</td><td class="n">3K</td><td class="n">2026</td></tr>
     </table></div>
   </div>
 </section>
@@ -618,22 +641,30 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   </div>
 </section>
 
-<section id="arabcollabs">
+<section id="partners">
   <div class="wrap">
-    <div class="eyebrow">Arab world</div>
-    <h2 class="sec">1.7 million views<br><span class="o">in Arabic alone</span></h2>
-    <p class="lead">A separate body of work made for Arab audiences with creators from the region, led by a run with Amr Sherif and his FoodCast, alongside Morcos, Adham, Wagdy Abo El Leil, Amr Hadi and Shami.</p>
-    <div class="tbl" style="margin-top:28px"><table>
-      <tr><th>With</th><th>Title</th><th>Views</th><th>Format</th></tr>
-      <tr><td>Amr Sherif, Adham and Morcos</td><td>The biggest pan of sogo' and liver, on the tabliya</td><td class="n">768K</td><td>41 min</td></tr>
-      <tr><td>Amr Sherif</td><td>Imagine molokhia with wagyu sauce</td><td class="n">247K</td><td>Short</td></tr>
-      <tr><td>Amr Sherif</td><td>The most delicious dish in the world is stuffed cabbage</td><td class="n">232K</td><td>Short</td></tr>
-      <tr><td>Amr Sherif</td><td>The truth about blood coming out of meat</td><td class="n">202K</td><td>Short</td></tr>
-      <tr><td>Amr Sherif, FoodCast</td><td>Between food, sumo and his MrBeast appearance, the Ramy story</td><td class="n">131K</td><td>1 hr 31 min</td></tr>
-      <tr><td>Amr Sherif</td><td>Chicken skin lovers gather here</td><td class="n">81K</td><td>Short</td></tr>
-      <tr><td>Amr Sherif</td><td>We cook with love</td><td class="n">60K</td><td>Short</td></tr>
-      <tr><td>Mina Jacob, Talks with MON</td><td>World Sumo Champion, his story and MrBeast</td><td class="n">3K</td><td>Two episodes</td></tr>
-    </table></div>
+    <div class="eyebrow">Collaborators</div>
+    <h2 class="sec">Who he has<br><span class="o">worked with</span></h2>
+    <p class="lead">From the largest channels on the platform to the creators shaping food and culture in the Arab world. The same person, two audiences, one body of work.</p>
+    <div class="strip" id="strip">
+      <article class="pcard"><div class="pn">MrBeast</div><div class="pm">471M views across two films</div><div class="pt">Global</div></article>
+      <article class="pcard"><div class="pn">Stokes Twins</div><div class="pm">733M views across six films</div><div class="pt">Global</div></article>
+      <article class="pcard"><div class="pn">Nick DiGiovanni</div><div class="pm">68M views, food</div><div class="pt">Global</div></article>
+      <article class="pcard"><div class="pn">Amr Sherif</div><div class="pm">1.7M views, seven films and FoodCast</div><div class="pt">Arab world</div></article>
+      <article class="pcard"><div class="pn">Peso Pluma</div><div class="pm">Official music video, 12M views</div><div class="pt">Latin</div></article>
+      <article class="pcard"><div class="pn">Airrack</div><div class="pm">23M views</div><div class="pt">Global</div></article>
+      <article class="pcard"><div class="pn">AMP</div><div class="pm">4.1M views</div><div class="pt">Global</div></article>
+      <article class="pcard"><div class="pn">Adham &amp; Morcos</div><div class="pm">On the tabliya, 768K views</div><div class="pt">Arab world</div></article>
+      <article class="pcard"><div class="pn">Jesse James West</div><div class="pm">846K views, training</div><div class="pt">Global</div></article>
+      <article class="pcard"><div class="pn">Lip Sync Battle</div><div class="pm">US network television</div><div class="pt">Television</div></article>
+      <article class="pcard"><div class="pn">Tengo Talento</div><div class="pm">Multiple seasons, Spanish language</div><div class="pt">Television</div></article>
+      <article class="pcard"><div class="pn">The Project</div><div class="pm">Australian national television</div><div class="pt">Television</div></article>
+      <article class="pcard"><div class="pn">Wagdy Abo El Leil</div><div class="pm">Creator collaboration</div><div class="pt">Arab world</div></article>
+      <article class="pcard"><div class="pn">Amr Hadi</div><div class="pm">Creator collaboration</div><div class="pt">Arab world</div></article>
+      <article class="pcard"><div class="pn">Shami</div><div class="pm">Creator collaboration</div><div class="pt">Arab world</div></article>
+      <article class="pcard"><div class="pn">Mina Jacob</div><div class="pm">Talks with MON, two episodes</div><div class="pt">Arab world</div></article>
+    </div>
+    <p class="note" style="color:#6f6f6f; font-size:.82rem">Drag or scroll sideways</p>
   </div>
 </section>
 
@@ -787,6 +818,14 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   }
   window.addEventListener('scroll', prog, {passive:true}); prog();
 
+  var strip = document.getElementById('strip');
+  if(strip){
+    var down=false, sx=0, sl=0;
+    strip.addEventListener('mousedown', function(e){ down=true; strip.classList.add('drag'); sx=e.pageX; sl=strip.scrollLeft; });
+    window.addEventListener('mouseup', function(){ down=false; strip.classList.remove('drag'); });
+    strip.addEventListener('mousemove', function(e){ if(!down) return; e.preventDefault(); strip.scrollLeft = sl - (e.pageX - sx)*1.3; });
+  }
+
   var himg = document.querySelector('.himg');
   if(himg) requestAnimationFrame(function(){ himg.classList.add('go'); });
 
@@ -840,7 +879,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 })();
 
 (function(){
-  var ids=["intro","who","standing","record","road","abudhabi","shows","screen","arabcollabs","kitchen","audience","arabic","press"];
+  var ids=["intro","who","standing","record","road","abudhabi","shows","screen","partners","kitchen","audience","arabic","press"];
   var links=[].slice.call(document.querySelectorAll("#rail a"));
   function upd(){
     var y=window.scrollY+window.innerHeight*0.35, cur=0;
