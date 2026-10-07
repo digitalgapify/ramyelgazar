@@ -913,20 +913,11 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 (function(){
   var ids=["intro","who","standing","record","road","abudhabi","shows","screen","partners","kitchen","audience","arabic","press","links"];
   var links=[].slice.call(document.querySelectorAll("#rail a, #tabs a"));
-  var tabsScroll=document.querySelector("#tabs .tabs-scroll");
-  var lastId=null;
   function upd(){
     var y=window.scrollY+window.innerHeight*0.35, cur=0;
     ids.forEach(function(id,i){var el=document.getElementById(id); if(el&&el.offsetTop<=y) cur=i;});
     var curId=ids[cur];
     links.forEach(function(a){a.classList.toggle("on", a.getAttribute("href")==="#"+curId);});
-    if(curId!==lastId){
-      lastId=curId;
-      if(tabsScroll){
-        var active=tabsScroll.querySelector('a[href="#'+curId+'"]');
-        if(active) active.scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"});
-      }
-    }
   }
   window.addEventListener("scroll",upd,{passive:true}); upd();
 })();
