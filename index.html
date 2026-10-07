@@ -244,6 +244,15 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 .sc-mini .sc-badge{width:13px; height:13px; bottom:-2px; right:-2px; border-width:1.5px}
 .sc-mini .sc-badge svg{width:7px; height:7px}
 
+/* All-links footer section */
+#links{border-top:1px solid var(--line)}
+.sc-group{margin-top:40px}
+.sc-group:first-of-type{margin-top:28px}
+.sc-group-head{display:flex; align-items:center; gap:12px; margin-bottom:16px}
+.sc-group-head img{width:38px; height:38px; border-radius:50%; object-fit:cover; border:2px solid var(--line); flex:none}
+.sc-group-title{font-family:"Anton",sans-serif; text-transform:uppercase; font-size:1.2rem; letter-spacing:.01em}
+.sc-group-sub{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.1em; font-size:.74rem; color:var(--mute)}
+
 @media (max-width:640px){
   footer{display:flex; flex-direction:column; gap:20px}
 }
@@ -254,7 +263,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 <nav id="rail">
   <a href="#intro">INTRO</a><a href="#who">WHO</a><a href="#standing">STANDING</a><a href="#record">RECORD</a>
   <a href="#road">ROAD</a><a href="#abudhabi">ABU DHABI</a><a href="#shows">SHOWS</a>
-  <a href="#screen">SCREEN</a><a href="#partners">PARTNERS</a><a href="#kitchen">KITCHEN</a><a href="#audience">AUDIENCE</a><a href="#arabic">ARABIC</a><a href="#press">PRESS</a>
+  <a href="#screen">SCREEN</a><a href="#partners">PARTNERS</a><a href="#kitchen">KITCHEN</a><a href="#audience">AUDIENCE</a><a href="#arabic">ARABIC</a><a href="#press">PRESS</a><a href="#links">LINKS</a>
 </nav>
 
 <section class="hero" id="intro">
@@ -607,9 +616,23 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
         <li>Ozarks Live, Fox 2, FTV Taiwan</li>
       </ul></div>
       <div class="card"><h4>YouTube</h4><ul>
-        <li><strong><a href="https://www.youtube.com/@RamyElgazar" target="_blank" rel="noopener noreferrer">@RamyElgazar</a></strong>, main channel, 60K subscribers</li>
-        <li><strong><a href="https://www.youtube.com/@Elgazark" target="_blank" rel="noopener noreferrer">@Elgazark</a></strong>, elgazar recipe, cooking</li>
-        <li><strong><a href="https://www.youtube.com/@sumobyarabic" target="_blank" rel="noopener noreferrer">@sumobyarabic</a></strong>, sumo explained in Arabic<br>
+        <li><strong>@RamyElgazar</strong>, main channel, 60K subscribers<br>
+          <a class="sc-mini" style="--brand:#FF0000" href="https://www.youtube.com/@RamyElgazar" target="_blank" rel="noopener noreferrer">
+            <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy">
+              <span class="sc-badge"><svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1a68 68 0 0 0-48.3-48.6C458.8 64 288 64 288 64s-170.8 0-213.4 11.5a68 68 0 0 0-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.3 132.3a68 68 0 0 0 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5a68 68 0 0 0 48.3-47.8c11.3-42.9 11.3-132.3 11.3-132.3s0-89.4-11.3-132.3zM232.1 337.6V175.2l142.7 81.2-142.7 81.2z"/></svg></span>
+            </span>
+            Watch on YouTube
+          </a>
+        </li>
+        <li><strong>@Elgazark</strong>, elgazar recipe, cooking<br>
+          <a class="sc-mini" style="--brand:#FF0000" href="https://www.youtube.com/@Elgazark" target="_blank" rel="noopener noreferrer">
+            <span class="sc-avatar"><img src="avatar-sumoguy.jpg" alt="Elgazar recipe" loading="lazy">
+              <span class="sc-badge"><svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1a68 68 0 0 0-48.3-48.6C458.8 64 288 64 288 64s-170.8 0-213.4 11.5a68 68 0 0 0-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.3 132.3a68 68 0 0 0 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5a68 68 0 0 0 48.3-47.8c11.3-42.9 11.3-132.3 11.3-132.3s0-89.4-11.3-132.3zM232.1 337.6V175.2l142.7 81.2-142.7 81.2z"/></svg></span>
+            </span>
+            Watch on YouTube
+          </a>
+        </li>
+        <li><strong>@sumobyarabic</strong>, sumo explained in Arabic<br>
           <a class="sc-mini" style="--brand:#FF0000" href="https://www.youtube.com/@sumobyarabic" target="_blank" rel="noopener noreferrer">
             <span class="sc-avatar"><img src="avatar-sumobyarabic.jpg" alt="sumobyarabic" loading="lazy">
               <span class="sc-badge"><svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1a68 68 0 0 0-48.3-48.6C458.8 64 288 64 288 64s-170.8 0-213.4 11.5a68 68 0 0 0-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.3 132.3a68 68 0 0 0 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5a68 68 0 0 0 48.3-47.8c11.3-42.9 11.3-132.3 11.3-132.3s0-89.4-11.3-132.3zM232.1 337.6V175.2l142.7 81.2-142.7 81.2z"/></svg></span>
@@ -620,11 +643,39 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
         <li><strong>Koubayet Shay we Hekaya</strong>, long form conversation</li>
       </ul></div>
       <div class="card"><h4>Social</h4><ul>
-        <li><strong><a href="https://www.instagram.com/ramyelgazar1/" target="_blank" rel="noopener noreferrer">@ramyelgazar1</a></strong>, Instagram, verified, 253K followers</li>
-        <li><strong><a href="https://www.tiktok.com/@ramyelgazar1" target="_blank" rel="noopener noreferrer">@ramyelgazar1</a></strong>, TikTok, 611K followers</li>
-        <li><strong><a href="https://www.threads.net/@ramyelgazar1" target="_blank" rel="noopener noreferrer">@ramyelgazar1</a></strong>, Threads</li>
-        <li><strong><a href="https://facebook.com/ramyelgazar" target="_blank" rel="noopener noreferrer">facebook.com/ramyelgazar</a></strong>, 498K followers</li>
-        <li><strong><a href="https://www.instagram.com/sumoguy.usa/" target="_blank" rel="noopener noreferrer">@sumoguy.usa</a></strong>, the food brand<br>
+        <li><strong>@ramyelgazar1</strong>, Instagram, verified, 253K followers<br>
+          <a class="sc-mini" style="--brand:#E1306C" href="https://www.instagram.com/ramyelgazar1/" target="_blank" rel="noopener noreferrer">
+            <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy">
+              <span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.8 105.6 2 141.5c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></span>
+            </span>
+            Follow on Instagram
+          </a>
+        </li>
+        <li><strong>@ramyelgazar1</strong>, TikTok, 611K followers<br>
+          <a class="sc-mini" style="--brand:#000" href="https://www.tiktok.com/@ramyelgazar1" target="_blank" rel="noopener noreferrer">
+            <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy">
+              <span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M448 209.9a210 210 0 0 1-122.8-39.3v178.8A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg></span>
+            </span>
+            Watch on TikTok
+          </a>
+        </li>
+        <li><strong>@ramyelgazar1</strong>, Threads<br>
+          <a class="sc-mini" style="--brand:#000" href="https://www.threads.net/@ramyelgazar1" target="_blank" rel="noopener noreferrer">
+            <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy">
+              <span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M331.5 235.7c2.2.9 4.2 1.9 6.3 2.8 29.2 14.1 50.6 35.2 61.8 61.4 15.7 36.5 17.2 95.8-30.3 143.2-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2C33.8 384.9 17.2 327.8 16.6 256.2V256c.5-71.5 17.2-128.6 49.5-169.6C102.4 40.1 156.3 16.5 226.5 16h.3c70.3.5 124.9 24 162.3 69.9 18.4 22.7 32 50 40.6 81.7l-40.4 10.8c-7.1-25.8-17.9-47.8-32.2-65.4-28.9-35.4-73.2-53.7-131.4-54.1H225c-58.1.4-102.1 18.9-130.9 54.1C68.3 139.2 55.6 189.1 55.1 256c.5 66.9 13.2 116.7 39 142.9 28.8 35.1 72.8 53.6 130.9 54.1h.5c53.6-.4 90.5-13.5 120.6-43.6 22.9-22.7 30.8-46.1 31.9-65.1 1.2-19.9-2.7-37.4-13.5-55.9l-1-1.6c-16.3-30.3-35.3-55.9-56.8-76.5-9.4 24.5-21.8 46.1-38.8 65.4-23.8 25.5-54.6 39.3-91.3 40-39.6.6-74.8-14.2-93.7-39.2-19.5-25.2-18-56.1-7.5-74.2 22.7-39.7 68.8-62.8 123.7-62.1 25.3.3 49.5 4.6 73.1 13.4 11.3-19.8 20-41.6 25.9-65.4z"/></svg></span>
+            </span>
+            Follow on Threads
+          </a>
+        </li>
+        <li><strong>facebook.com/ramyelgazar</strong>, 498K followers<br>
+          <a class="sc-mini" style="--brand:#1877F2" href="https://facebook.com/ramyelgazar" target="_blank" rel="noopener noreferrer">
+            <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy">
+              <span class="sc-badge"><svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z"/></svg></span>
+            </span>
+            Follow on Facebook
+          </a>
+        </li>
+        <li><strong>@sumoguy.usa</strong>, the food brand<br>
           <a class="sc-mini" style="--brand:#E1306C" href="https://www.instagram.com/sumoguy.usa/" target="_blank" rel="noopener noreferrer">
             <span class="sc-avatar"><img src="avatar-sumoguy.jpg" alt="Sumo Guy" loading="lazy">
               <span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.8 105.6 2 141.5c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></span>
@@ -802,6 +853,83 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   </div>
 </section>
 
+<section id="links">
+  <div class="wrap">
+    <div class="eyebrow">Everywhere he is</div>
+    <h2 class="sec">All the links<br><span class="o">in one place</span></h2>
+    <p class="lead">Ramy Elgazar, and the two brands he built around him &mdash; sumobyarabic and Sumo Guy &mdash; across every platform.</p>
+
+    <div class="sc-group">
+      <div class="sc-group-head">
+        <img src="avatar-main.jpg" alt="Ramy Elgazar">
+        <div><div class="sc-group-title">Ramy Elgazar</div><div class="sc-group-sub">Athlete &middot; performer &middot; chef</div></div>
+      </div>
+      <div class="social-cards">
+        <a class="social-card" style="--brand:#E1306C" href="https://www.instagram.com/ramyelgazar1/" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.8 105.6 2 141.5c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">Instagram</span><span class="sc-handle">@ramyelgazar1</span><span class="sc-meta">253K followers</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="social-card" style="--brand:#000" href="https://www.tiktok.com/@ramyelgazar1" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M448 209.9a210 210 0 0 1-122.8-39.3v178.8A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">TikTok</span><span class="sc-handle">@ramyelgazar1</span><span class="sc-meta">611K followers</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="social-card" style="--brand:#1877F2" href="https://facebook.com/ramyelgazar" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">Facebook</span><span class="sc-handle">facebook.com/ramyelgazar</span><span class="sc-meta">498K followers</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="social-card" style="--brand:#FF0000" href="https://www.youtube.com/@RamyElgazar" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1a68 68 0 0 0-48.3-48.6C458.8 64 288 64 288 64s-170.8 0-213.4 11.5a68 68 0 0 0-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.3 132.3a68 68 0 0 0 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5a68 68 0 0 0 48.3-47.8c11.3-42.9 11.3-132.3 11.3-132.3s0-89.4-11.3-132.3zM232.1 337.6V175.2l142.7 81.2-142.7 81.2z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">YouTube</span><span class="sc-handle">@RamyElgazar</span><span class="sc-meta">60K subscribers</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="social-card" style="--brand:#000" href="https://www.threads.net/@ramyelgazar1" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M331.5 235.7c2.2.9 4.2 1.9 6.3 2.8 29.2 14.1 50.6 35.2 61.8 61.4 15.7 36.5 17.2 95.8-30.3 143.2-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2C33.8 384.9 17.2 327.8 16.6 256.2V256c.5-71.5 17.2-128.6 49.5-169.6C102.4 40.1 156.3 16.5 226.5 16h.3c70.3.5 124.9 24 162.3 69.9 18.4 22.7 32 50 40.6 81.7l-40.4 10.8c-7.1-25.8-17.9-47.8-32.2-65.4-28.9-35.4-73.2-53.7-131.4-54.1H225c-58.1.4-102.1 18.9-130.9 54.1C68.3 139.2 55.6 189.1 55.1 256c.5 66.9 13.2 116.7 39 142.9 28.8 35.1 72.8 53.6 130.9 54.1h.5c53.6-.4 90.5-13.5 120.6-43.6 22.9-22.7 30.8-46.1 31.9-65.1 1.2-19.9-2.7-37.4-13.5-55.9l-1-1.6c-16.3-30.3-35.3-55.9-56.8-76.5-9.4 24.5-21.8 46.1-38.8 65.4-23.8 25.5-54.6 39.3-91.3 40-39.6.6-74.8-14.2-93.7-39.2-19.5-25.2-18-56.1-7.5-74.2 22.7-39.7 68.8-62.8 123.7-62.1 25.3.3 49.5 4.6 73.1 13.4 11.3-19.8 20-41.6 25.9-65.4z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">Threads</span><span class="sc-handle">@ramyelgazar1</span><span class="sc-meta">Behind the scenes</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="social-card" style="--brand:#0A66C2" href="https://www.linkedin.com/in/ramy-elgazar-a1a12719a/" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-main.jpg" alt="Ramy Elgazar" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.79 53.79 0 1 1 53.79-53.79 53.79 53.79 0 0 1-53.79 53.79zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">LinkedIn</span><span class="sc-handle">Ramy Elgazar</span><span class="sc-meta">Los Angeles</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="sc-group">
+      <div class="sc-group-head">
+        <img src="avatar-sumobyarabic.jpg" alt="sumobyarabic">
+        <div><div class="sc-group-title">sumobyarabic</div><div class="sc-group-sub">Sumo explained in Arabic</div></div>
+      </div>
+      <div class="social-cards">
+        <a class="social-card" style="--brand:#FF0000" href="https://www.youtube.com/@sumobyarabic" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-sumobyarabic.jpg" alt="sumobyarabic" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1a68 68 0 0 0-48.3-48.6C458.8 64 288 64 288 64s-170.8 0-213.4 11.5a68 68 0 0 0-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.3 132.3a68 68 0 0 0 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5a68 68 0 0 0 48.3-47.8c11.3-42.9 11.3-132.3 11.3-132.3s0-89.4-11.3-132.3zM232.1 337.6V175.2l142.7 81.2-142.7 81.2z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">YouTube</span><span class="sc-handle">@sumobyarabic</span><span class="sc-meta">Sumo in Arabic</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="sc-group">
+      <div class="sc-group-head">
+        <img src="avatar-sumoguy.jpg" alt="Sumo Guy">
+        <div><div class="sc-group-title">Sumo Guy</div><div class="sc-group-sub">@sumoguy.usa &middot; Egyptian street food</div></div>
+      </div>
+      <div class="social-cards">
+        <a class="social-card" style="--brand:#E1306C" href="https://www.instagram.com/sumoguy.usa/" target="_blank" rel="noopener noreferrer">
+          <span class="sc-avatar"><img src="avatar-sumoguy.jpg" alt="Sumo Guy" loading="lazy"><span class="sc-badge"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.8 105.6 2 141.5c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></span></span>
+          <span class="sc-body"><span class="sc-platform">Instagram</span><span class="sc-handle">@sumoguy.usa</span><span class="sc-meta">Egyptian street food</span></span>
+          <svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+      <p style="color:#6f6f6f; font-size:.8rem; margin-top:14px">sumobyarabic and Sumo Guy are currently confirmed on one platform each above. If either has a TikTok, Facebook or other page, send the link and it goes straight in here.</p>
+    </div>
+
+  </div>
+</section>
+
 <footer><div class="wrap" style="display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap">
   <span style="font-family:'Anton',sans-serif; text-transform:uppercase; color:#c9c9c9; letter-spacing:.02em">Ramy Elgazar</span>
   <span>Two time US Sumo Open Heavyweight Champion &middot; International Sumo Federation referee</span>
@@ -879,7 +1007,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 })();
 
 (function(){
-  var ids=["intro","who","standing","record","road","abudhabi","shows","screen","partners","kitchen","audience","arabic","press"];
+  var ids=["intro","who","standing","record","road","abudhabi","shows","screen","partners","kitchen","audience","arabic","press","links"];
   var links=[].slice.call(document.querySelectorAll("#rail a"));
   function upd(){
     var y=window.scrollY+window.innerHeight*0.35, cur=0;
