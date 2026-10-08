@@ -107,10 +107,17 @@ strong.hl{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:
 .card li{padding:9px 0; border-bottom:1px solid #262626; font-size:.95rem; color:#c9c9c9}
 .card li:last-child{border:0}
 .card li strong{color:var(--ink); font-size:1.1em; font-weight:600}
-.press-logos{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px}
-.press-logo{background:#fff; border-radius:8px; padding:10px 14px; display:flex; align-items:center; justify-content:center; transition:transform .2s, box-shadow .2s}
-.press-logo img{height:28px; width:auto; max-width:120px; display:block}
-.press-logo:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.press-ticker{position:relative; overflow:hidden; margin:32px 0 40px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.press-track{display:flex; gap:20px; width:max-content; animation:press-scroll 34s linear infinite}
+.press-ticker:hover .press-track{animation-play-state:paused}
+.press-logo{flex:none; background:#fff; border-radius:12px; padding:16px 28px; display:flex; align-items:center; justify-content:center; transition:transform .2s, box-shadow .2s}
+.press-logo img{height:44px; width:auto; max-width:180px; display:block}
+.press-logo:hover{transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.4)}
+.press-set{display:flex; gap:20px; flex:none}
+@keyframes press-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.press-track{animation:none}.press-set[aria-hidden]{display:none}}
 .press-extra{font-size:.8rem; color:#7d7d7d; padding-top:10px; border-top:1px solid #262626}
 .big-win{display:block; padding:16px 0 20px !important}
 .big-win .x{font-family:"Anton",sans-serif; color:var(--o); font-size:3.6rem; line-height:.8; display:block}
@@ -783,9 +790,10 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   <div class="wrap">
     <div class="eyebrow">Coverage</div>
     <h2 class="sec">Press</h2>
-    <div class="cols">
-      <div class="card"><h4>International</h4>
-        <div class="press-logos">
+
+    <div class="press-ticker">
+      <div class="press-track">
+        <div class="press-set">
           <span class="press-logo"><img src="logo-latimes.jpg" alt="Los Angeles Times" loading="lazy"></span>
           <span class="press-logo"><img src="logo-vice.jpg" alt="VICE, Fightland" loading="lazy"></span>
           <span class="press-logo"><img src="logo-ap.jpg" alt="Associated Press" loading="lazy"></span>
@@ -794,19 +802,45 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
           <span class="press-logo"><img src="logo-arabnews.jpg" alt="Arab News" loading="lazy"></span>
           <span class="press-logo"><img src="logo-niletv.jpg" alt="Nile TV" loading="lazy"></span>
           <span class="press-logo"><img src="logo-fox.jpg" alt="Fox" loading="lazy"></span>
-        </div>
-        <div class="press-extra">Also: Long Beach Press Telegram, Ahram Online, CairoScene, FTV Taiwan</div>
-      </div>
-      <div class="card"><h4>Arabic</h4>
-        <div class="press-logos">
           <span class="press-logo"><img src="logo-alarabiya.jpg" alt="Al Arabiya" loading="lazy"></span>
           <span class="press-logo"><img src="logo-aljazeera.jpg" alt="Al Jazeera" loading="lazy"></span>
           <span class="press-logo"><img src="logo-youm7.jpg" alt="Youm7" loading="lazy"></span>
           <span class="press-logo"><img src="logo-almasryalyoum.jpg" alt="Al Masry Al Youm" loading="lazy"></span>
           <span class="press-logo"><img src="logo-ertu.jpg" alt="Egyptian TV Channel One" loading="lazy"></span>
         </div>
-        <div class="press-extra">Also: Al Mehwar, Al Watan. Interviews with Mona El Shazly and Ahmed Shobeir</div>
+        <div class="press-set" aria-hidden="true">
+          <span class="press-logo"><img src="logo-latimes.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-vice.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-ap.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-khaleejtimes.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-thenational.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-arabnews.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-niletv.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-fox.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-alarabiya.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-aljazeera.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-youm7.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-almasryalyoum.jpg" alt="" loading="lazy"></span>
+          <span class="press-logo"><img src="logo-ertu.jpg" alt="" loading="lazy"></span>
+        </div>
       </div>
+    </div>
+
+    <div class="cols">
+      <div class="card"><h4>International</h4><ul>
+        <li>Los Angeles Times, Associated Press, VICE</li>
+        <li>Khaleej Times, The National, Arab News</li>
+        <li>Nile TV, Fox</li>
+        <li>Long Beach Press Telegram, Ahram Online</li>
+        <li>CairoScene, FTV Taiwan</li>
+      </ul></div>
+      <div class="card"><h4>Arabic</h4><ul>
+        <li>Al Arabiya, Al Jazeera</li>
+        <li>Youm7, Al Masry Al Youm</li>
+        <li>Egyptian TV Channel One, two part feature</li>
+        <li>Al Mehwar, Al Watan</li>
+        <li>Interviews with Mona El Shazly and Ahmed Shobeir</li>
+      </ul></div>
       <div class="card"><h4>Institutional</h4><ul>
         <li>US Embassy Cairo, official post</li>
         <li>Embassy of Egypt, Washington DC</li>
