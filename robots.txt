@@ -37,4 +37,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://ramyelgazar.gapify.org/sitemap.xml
+Sitemap: https://ramyelgazar.com/sitemap.xml
