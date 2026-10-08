@@ -220,6 +220,23 @@ table tbody tr,table tr{transition:background .25s}
   #prog{display:none}
 }
 footer{border-top:1px solid var(--line); padding:54px 0 76px; color:#6c6c6c; font-size:.86rem}
+.foot-row{display:grid; grid-template-columns:1fr auto; gap:28px; align-items:start}
+.foot-col{display:flex; flex-direction:column; gap:10px; min-width:0}
+.foot-col.right{align-items:flex-end; text-align:right}
+.foot-label{color:#6c6c6c; font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:.72rem}
+.foot-btns{display:flex; gap:10px; flex-wrap:wrap}
+.foot-col.right .foot-btns{justify-content:flex-end}
+.foot-btn{display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid var(--line); border-radius:999px; color:var(--ink); text-decoration:none; font-size:.78rem; transition:border-color .2s, color .2s, background .2s}
+.foot-btn svg{width:14px; height:14px; flex:none; fill:none; stroke:currentColor; stroke-width:2}
+.foot-btn:hover{border-color:var(--o); color:var(--o); background:rgba(255,77,0,.08)}
+.foot-brand{display:inline-flex; align-items:center; gap:8px; color:#c9c9c9; text-decoration:none}
+.foot-brand img{height:24px; width:auto; display:block}
+.foot-brand span{font-weight:600}
+@media(max-width:640px){
+  .foot-row{grid-template-columns:1fr; gap:24px}
+  .foot-col.right{align-items:flex-start; text-align:left}
+  .foot-col.right .foot-btns{justify-content:flex-start}
+}
 .social-row{display:flex; gap:12px; margin-top:28px; flex-wrap:wrap}
 .social-link{display:inline-flex; align-items:center; gap:9px; padding:10px 18px; border:1px solid var(--line); border-radius:999px; color:var(--ink); text-decoration:none; font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.1em; font-size:.82rem; transition:border-color .2s, color .2s, background .2s}
 .social-link svg{width:17px; height:17px; flex:none; fill:currentColor}
@@ -845,21 +862,30 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
     <span style="font-family:'Anton',sans-serif; text-transform:uppercase; color:#c9c9c9; letter-spacing:.02em">Ramy Elgazar</span>
     <span>Four time US Sumo Open Heavyweight Champion &middot; International Sumo Federation referee</span>
   </div>
-  <div class="wrap" style="display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-top:18px; padding-top:18px; border-top:1px solid var(--line); font-size:.8rem">
-    <div style="display:flex; flex-direction:column; gap:6px">
-      <span style="color:#6c6c6c; font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:.72rem">For enquiries</span>
-      <span style="display:flex; gap:18px; flex-wrap:wrap">
-        <a href="mailto:Media@ramyelgazar.com" style="color:#8d8d8d; text-decoration:none; border-bottom:1px solid #3a3a3a">Media@ramyelgazar.com</a>
-        <a href="tel:+971502561030" style="color:#8d8d8d; text-decoration:none; border-bottom:1px solid #3a3a3a">+971 50 256 1030</a>
-      </span>
+  <div class="wrap foot-row" style="margin-top:18px; padding-top:18px; border-top:1px solid var(--line)">
+    <div class="foot-col">
+      <span class="foot-label">For enquiries</span>
+      <div class="foot-btns">
+        <a class="foot-btn" href="mailto:Media@ramyelgazar.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round"/><path d="m4 6 8 7 8-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Media@ramyelgazar.com
+        </a>
+        <a class="foot-btn" href="tel:+971502561030">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          +971 50 256 1030
+        </a>
+      </div>
     </div>
-    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px">
-      <span style="color:#6c6c6c; font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:.72rem">Powered by</span>
-      <a href="https://gapify.org" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; color:#c9c9c9; text-decoration:none">
-        <img src="gapify-logo.png" alt="" style="height:24px; width:auto; display:block" onerror="this.style.display='none'">
-        <span style="font-weight:600">Gapify</span>
+    <div class="foot-col right">
+      <span class="foot-label">Powered by</span>
+      <a class="foot-brand" href="https://gapify.org" target="_blank" rel="noopener noreferrer">
+        <img src="gapify-logo.png" alt="" onerror="this.style.display='none'">
+        <span>Gapify</span>
       </a>
-      <a href="mailto:digital@gapify.org" style="color:#8d8d8d; text-decoration:none; border-bottom:1px solid #3a3a3a; margin-top:2px">Contact us</a>
+      <a class="foot-btn" href="mailto:digital@gapify.org">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round"/><path d="m4 6 8 7 8-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Contact us
+      </a>
     </div>
   </div>
 </footer>
