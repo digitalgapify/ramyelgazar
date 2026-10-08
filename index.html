@@ -78,10 +78,10 @@ strong.hl{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:
 }
 
 /* STATS */
-.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line)}
+.stats{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line)}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.stats{grid-template-columns:1fr}}
-.stat{background:var(--bg); padding:clamp(24px,2.4vw,38px)}
+.stat{background:var(--bg); padding:clamp(24px,2.4vw,38px); border-right:1px solid var(--line); border-bottom:1px solid var(--line)}
 .stat .n{font-family:"Anton",sans-serif; font-size:clamp(2.6rem,4.6vw,4.4rem); color:var(--o); line-height:.9}
 .stat-lead{background:#1d1510}
 .stat-lead .n{font-size:clamp(3.2rem,5.6vw,5.6rem)}
@@ -748,7 +748,6 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
     <div class="stats">
       <div class="stat"><div class="n">+1.4M</div><div class="l">Total followers</div><div class="s">TikTok, Facebook, Instagram, YouTube</div></div>
       <div class="stat"><div class="n">22M</div><div class="l">Views, last 28 days</div><div class="s">Up 109 per cent on the previous window</div></div>
-      <div class="stat"><div class="n">5M</div><div class="l">Monthly reach</div></div>
       <div class="stat"><div class="n">611K</div><div class="l">TikTok followers</div><div class="s">8.9M likes</div></div>
       <div class="stat"><div class="n">498K</div><div class="l">Facebook followers</div></div>
       <div class="stat"><div class="n">253K</div><div class="l">Instagram followers</div><div class="s">Verified, 814 posts</div></div>
