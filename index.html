@@ -347,10 +347,10 @@
 }
 </script>
 <script>
-(function(){try{var q=/[?&]splash\b/.test(location.search),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,seen=false;
-try{seen=sessionStorage.getItem('rg-splash')}catch(e){}
-var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0],rel=nav&&nav.type!=='navigate';
-if(!rm&&(q||(!seen&&!location.hash&&!rel))){var d=document.documentElement;d.classList.add('splash');setTimeout(function(){d.classList.remove('splash')},7000)}}catch(e){}})();
+(function(){try{var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!rm&&!location.hash){var d=document.documentElement;d.classList.add('splash');
+try{history.scrollRestoration='manual'}catch(e){}
+window.scrollTo(0,0);setTimeout(function(){d.classList.remove('splash')},7000)}}catch(e){}})();
 </script>
 <style>
 :root{
