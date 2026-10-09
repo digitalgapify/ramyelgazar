@@ -350,7 +350,7 @@
 (function(){try{var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!rm&&!location.hash){var d=document.documentElement;d.classList.add('splash');
 try{history.scrollRestoration='manual'}catch(e){}
-window.scrollTo(0,0);setTimeout(function(){d.classList.remove('splash')},7000)}}catch(e){}})();
+window.scrollTo(0,0);setTimeout(function(){d.classList.remove('splash')},6000)}}catch(e){}})();
 </script>
 <style>
 :root{
@@ -582,13 +582,13 @@ html.splash,html.splash body{overflow:hidden}
 html.splash #splash{display:flex; position:fixed; inset:0; z-index:400; align-items:center; justify-content:center; background:var(--bg); cursor:pointer; transition:background-color .95s ease}
 html.splash #splash.out{background-color:transparent}
 html.splash .hero h1{visibility:hidden}
-.sp-name{display:inline-block; position:relative; text-align:left; color:var(--ink); transform-origin:0 0; will-change:transform}
-.sp-line{display:block; opacity:0; transform:translateY(.22em); clip-path:inset(-12% 100% -12% 0)}
-#splash.play .sp-line{animation:sp-in .9s cubic-bezier(.2,.7,.2,1) forwards}
-#splash.play .sp-line:nth-child(2){animation-delay:.2s}
-@keyframes sp-in{to{opacity:1; transform:none; clip-path:inset(-12% -3% -12% 0)}}
+.sp-name{display:inline-block; position:relative; text-align:left; color:var(--ink); transform-origin:0 0}
+.sp-line{display:block}
+.sp-l{opacity:0; position:relative; top:.2em}
+#splash.play .sp-l{animation:sp-l .45s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--i) * .17s)}
+@keyframes sp-l{to{opacity:1; top:0}}
 .sp-bar{position:absolute; left:0; bottom:-.1em; height:.06em; width:100%; background:var(--o); transform:scaleX(0); transform-origin:0 50%; transition:opacity .35s}
-#splash.play .sp-bar{animation:sp-bar .8s cubic-bezier(.65,0,.25,1) .55s forwards}
+#splash.play .sp-bar{animation:sp-bar .6s cubic-bezier(.65,0,.25,1) 2s forwards}
 @keyframes sp-bar{to{transform:scaleX(1)}}
 #splash.go .sp-name{transition:transform .95s cubic-bezier(.65,0,.25,1)}
 #splash.go .sp-bar{opacity:0}
@@ -669,7 +669,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="splash" aria-hidden="true"><div class="display sp-name"><span class="sp-line">Ramy</span><span class="sp-line">Elgazar</span><i class="sp-bar"></i></div></div>
+<div id="splash" aria-hidden="true"><div class="display sp-name"><span class="sp-line"><span class="sp-l" style="--i:0">R</span><span class="sp-l" style="--i:1">a</span><span class="sp-l" style="--i:2">m</span><span class="sp-l" style="--i:3">y</span></span><span class="sp-line"><span class="sp-l" style="--i:4">E</span><span class="sp-l" style="--i:5">l</span><span class="sp-l" style="--i:6">g</span><span class="sp-l" style="--i:7">a</span><span class="sp-l" style="--i:8">z</span><span class="sp-l" style="--i:9">a</span><span class="sp-l" style="--i:10">r</span></span><i class="sp-bar"></i></div></div>
 <nav id="tabs" aria-label="Section tabs">
   <div class="tabs-scroll">
     <a href="#intro">Intro</a><a href="#who">Who</a><a href="#standing">Standing</a><a href="#record">Record</a>
@@ -1578,7 +1578,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
     h1.style.animation='none'; h1.style.opacity='1'; h1.style.transform='none';
     nm.style.fontSize=getComputedStyle(h1).fontSize;
     var r0=nm.getBoundingClientRect();
-    var S=Math.min(1.7,(innerWidth*.84)/r0.width);
+    var S=Math.min(3,(innerWidth*.88)/r0.width,(innerHeight*.6)/r0.height);
     nm.style.transform='translate('+(r0.width*(1-S)/2)+'px,'+(r0.height*(1-S)/2)+'px) scale('+S+')';
     sp.classList.add('play');
     t=setTimeout(function(){
@@ -1586,9 +1586,9 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
       sp.classList.add('go','out');
       nm.style.transform='translate('+(hr.left-r0.left)+'px,'+(hr.top-r0.top)+'px) scale(1)';
       t=setTimeout(finish,1000);
-    },1700);
+    },3200);
   }
-  var fonts=(document.fonts&&document.fonts.ready)?Promise.race([document.fonts.ready,new Promise(function(r){setTimeout(r,1500)})]):Promise.resolve();
+  var fonts=(document.fonts&&document.fonts.ready)?Promise.race([document.fonts.ready,new Promise(function(r){setTimeout(r,1200)})]):Promise.resolve();
   fonts.then(run);
 })();
 </script>
