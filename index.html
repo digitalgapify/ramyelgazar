@@ -338,7 +338,7 @@
           "name": "How can I collaborate with Ramy Elgazar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For collaborations, brand partnerships, appearances, hosting and media enquiries, message his team on WhatsApp at +971 50 256 1030, email Media@ramyelgazar.com or call the same number."
+            "text": "For collaborations, brand partnerships, appearances, hosting and media enquiries, message his team on WhatsApp at +971 50 256 1030 and choose your region (USA, Egypt, GCC or Saudi Arabia), email Media@ramyelgazar.com or call the same number."
           }
         }
       ]
@@ -570,6 +570,12 @@ table tbody tr,table tr{transition:background .25s}
 .sticky-cta.show{opacity:1; transform:none; pointer-events:auto}
 .sticky-cta:hover{box-shadow:0 14px 36px rgba(255,77,0,.5); transform:translateY(-2px)}
 .sticky-cta svg{width:16px; height:16px; flex:none}
+.cta-menu{position:fixed; right:20px; bottom:80px; z-index:81; min-width:220px; padding:10px; background:var(--panel); border:1px solid var(--line); border-radius:14px; box-shadow:0 18px 44px rgba(0,0,0,.55)}
+.cta-menu[hidden]{display:none}
+.cta-menu .cm-t{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; color:var(--mute); padding:6px 12px 8px}
+.cta-menu a{display:flex; align-items:center; min-height:44px; padding:0 14px; border-radius:9px; color:var(--ink); text-decoration:none; font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.1em; font-size:.9rem; font-weight:600}
+.cta-menu a:hover{background:#262626; color:var(--o)}
+@media(max-width:640px){.cta-menu{right:14px; bottom:72px}}
 @media(max-width:640px){.sticky-cta{right:14px; bottom:14px; padding:12px 18px; font-size:.76rem}}
 @media(prefers-reduced-motion:reduce){.sticky-cta{transition:opacity .2s}}
 footer{border-top:1px solid var(--line); padding:54px 0 76px; color:var(--mute); font-size:.86rem}
@@ -651,10 +657,17 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 <div id="prog"></div>
 <main id="main">
 
-<a href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy." target="_blank" rel="noopener noreferrer" class="sticky-cta" id="stickyCta" aria-label="Collaborate with Ramy: message his team on WhatsApp">
+<a href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy." target="_blank" rel="noopener noreferrer" class="sticky-cta" id="stickyCta" aria-haspopup="true" aria-expanded="false" aria-controls="ctaMenu" aria-label="Collaborate with Ramy: choose your region and message his team on WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round"/><path d="m4 6 8 7 8-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
   Collaborate with Ramy
 </a>
+<div class="cta-menu" id="ctaMenu" hidden>
+  <div class="cm-t">Collaborating from</div>
+  <a href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20USA." target="_blank" rel="noopener noreferrer">USA</a>
+  <a href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20Egypt." target="_blank" rel="noopener noreferrer">Egypt</a>
+  <a href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20GCC." target="_blank" rel="noopener noreferrer">GCC</a>
+  <a href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20Saudi%20Arabia." target="_blank" rel="noopener noreferrer">Saudi Arabia</a>
+</div>
 
 <section class="hero" id="intro">
   <div class="hcol">
@@ -1342,7 +1355,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
       <div class="faq-item"><h3>How big is Ramy Elgazar&#x27;s online audience?</h3><p>Content he appears in has passed 1.5 billion views across 32 creator collaborations on 16 channels, including MrBeast, Nick DiGiovanni and Airrack. He has close to one million followers across platforms.</p></div>
       <div class="faq-item"><h3>Has Ramy Elgazar appeared on television or in film?</h3><p>Yes. His credits include Lip Sync Battle, Tengo Talento, Mucho Talento, The Project in Australia, Ozarks Live, and the films Hail Mary, The Grifter and The Wide West.</p></div>
       <div class="faq-item"><h3>Where can I follow Ramy Elgazar?</h3><p>Ramy is on Instagram (@ramyelgazar1), TikTok (@ramyelgazar1), YouTube (@RamyElgazar), Facebook (ramyelgazar), Threads (@ramyelgazar1) and LinkedIn. Links to each are on this page.</p></div>
-      <div class="faq-item"><h3>How can I collaborate with Ramy Elgazar?</h3><p>For collaborations, brand partnerships, appearances, hosting and media enquiries, message his team on WhatsApp at +971 50 256 1030, email Media@ramyelgazar.com or call the same number.</p></div>
+      <div class="faq-item"><h3>How can I collaborate with Ramy Elgazar?</h3><p>For collaborations, brand partnerships, appearances, hosting and media enquiries, message his team on WhatsApp at +971 50 256 1030 and choose your region (USA, Egypt, GCC or Saudi Arabia), email Media@ramyelgazar.com or call the same number.</p></div>
     </div>
   </div></div>
 </section>
@@ -1350,15 +1363,27 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   <div class="wrap">
     <div class="eyebrow">Work with Ramy</div>
     <h2 class="sec">To collaborate<br><span class="o">with Ramy</span></h2>
-    <p class="lead">Brand partnerships, appearances, hosting and media enquiries &mdash; reach out directly or message his team on WhatsApp.</p>
+    <p class="lead">Brand partnerships, appearances, hosting and media enquiries &mdash; message his team on WhatsApp and choose your region: USA, Egypt, GCC or Saudi Arabia.</p>
     <nav class="social-row" aria-label="Contact Ramy Elgazar" style="margin-top:32px">
       <a class="social-link" href="mailto:Media@ramyelgazar.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round"/><path d="m4 6 8 7 8-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Media@ramyelgazar.com
       </a>
-      <a class="social-link" href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy." target="_blank" rel="noopener noreferrer">
+      <a class="social-link" href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20USA." target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Collaborate on WhatsApp
+        WhatsApp: USA
+      </a>
+      <a class="social-link" href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20Egypt." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        WhatsApp: Egypt
+      </a>
+      <a class="social-link" href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20GCC." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        WhatsApp: GCC
+      </a>
+      <a class="social-link" href="https://wa.me/971502561030?text=Hi%20Ramy%27s%20team%2C%20I%27d%20like%20to%20collaborate%20with%20Ramy.%20Region%3A%20Saudi%20Arabia." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        WhatsApp: Saudi Arabia
       </a>
       <a class="social-link" href="tel:+971502561030">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1479,6 +1504,26 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   var cta = document.getElementById("stickyCta");
   var contactEl = document.getElementById("contact");
   if(!cta) return;
+  var menu = document.getElementById("ctaMenu");
+  function closeMenu(){
+    if(!menu || menu.hidden) return;
+    menu.hidden = true; cta.setAttribute("aria-expanded","false");
+  }
+  if(menu){
+    cta.addEventListener("click", function(e){
+      e.preventDefault();
+      var open = menu.hidden;
+      menu.hidden = !open; cta.setAttribute("aria-expanded", open ? "true" : "false");
+      if(open){ var f = menu.querySelector("a"); if(f) f.focus(); }
+    });
+    document.addEventListener("click", function(e){
+      if(!menu.hidden && !menu.contains(e.target) && !cta.contains(e.target)) closeMenu();
+    });
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && !menu.hidden){ closeMenu(); cta.focus(); }
+    });
+    menu.addEventListener("click", function(){ closeMenu(); });
+  }
   function upd(){
     var pastHero = window.scrollY > window.innerHeight*0.7;
     var nearContact = false;
@@ -1486,7 +1531,9 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
       var r = contactEl.getBoundingClientRect();
       nearContact = r.top < window.innerHeight*0.85;
     }
-    cta.classList.toggle("show", pastHero && !nearContact);
+    var on = pastHero && !nearContact;
+    cta.classList.toggle("show", on);
+    if(!on) closeMenu();
   }
   window.addEventListener("scroll", upd, {passive:true});
   window.addEventListener("resize", upd);
