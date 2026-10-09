@@ -346,6 +346,12 @@
   ]
 }
 </script>
+<script>
+(function(){try{var q=/[?&]splash\b/.test(location.search),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,seen=false;
+try{seen=sessionStorage.getItem('rg-splash')}catch(e){}
+var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0],rel=nav&&nav.type!=='navigate';
+if(!rm&&(q||(!seen&&!location.hash&&!rel))){var d=document.documentElement;d.classList.add('splash');setTimeout(function(){d.classList.remove('splash')},7000)}}catch(e){}})();
+</script>
 <style>
 :root{
   --bg:#141414; --panel:#1b1b1b; --ink:#f4f4f4; --mute:#8d8d8d; --line:#2d2d2d; --o:#FF4D00;
@@ -570,6 +576,22 @@ table tbody tr,table tr{transition:background .25s}
 .sticky-cta.show{opacity:1; transform:none; pointer-events:auto}
 .sticky-cta:hover{box-shadow:0 14px 36px rgba(255,77,0,.5); transform:translateY(-2px)}
 .sticky-cta svg{width:16px; height:16px; flex:none}
+/* intro splash: name animates in, then flies into the hero headline */
+#splash{display:none}
+html.splash,html.splash body{overflow:hidden}
+html.splash #splash{display:flex; position:fixed; inset:0; z-index:400; align-items:center; justify-content:center; background:var(--bg); cursor:pointer; transition:background-color .95s ease}
+html.splash #splash.out{background-color:transparent}
+html.splash .hero h1{visibility:hidden}
+.sp-name{display:inline-block; position:relative; text-align:left; color:var(--ink); transform-origin:0 0; will-change:transform}
+.sp-line{display:block; opacity:0; transform:translateY(.22em); clip-path:inset(-12% 100% -12% 0)}
+#splash.play .sp-line{animation:sp-in .9s cubic-bezier(.2,.7,.2,1) forwards}
+#splash.play .sp-line:nth-child(2){animation-delay:.2s}
+@keyframes sp-in{to{opacity:1; transform:none; clip-path:inset(-12% -3% -12% 0)}}
+.sp-bar{position:absolute; left:0; bottom:-.1em; height:.06em; width:100%; background:var(--o); transform:scaleX(0); transform-origin:0 50%; transition:opacity .35s}
+#splash.play .sp-bar{animation:sp-bar .8s cubic-bezier(.65,0,.25,1) .55s forwards}
+@keyframes sp-bar{to{transform:scaleX(1)}}
+#splash.go .sp-name{transition:transform .95s cubic-bezier(.65,0,.25,1)}
+#splash.go .sp-bar{opacity:0}
 .cta-menu{position:fixed; right:20px; bottom:80px; z-index:81; min-width:220px; padding:10px; background:var(--panel); border:1px solid var(--line); border-radius:14px; box-shadow:0 18px 44px rgba(0,0,0,.55)}
 .cta-menu[hidden]{display:none}
 .cta-menu .cm-t{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; color:var(--mute); padding:6px 12px 8px}
@@ -647,6 +669,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<div id="splash" aria-hidden="true"><div class="display sp-name"><span class="sp-line">Ramy</span><span class="sp-line">Elgazar</span><i class="sp-bar"></i></div></div>
 <nav id="tabs" aria-label="Section tabs">
   <div class="tabs-scroll">
     <a href="#intro">Intro</a><a href="#who">Who</a><a href="#standing">Standing</a><a href="#record">Record</a>
@@ -1534,6 +1557,39 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   window.addEventListener("scroll", upd, {passive:true});
   window.addEventListener("resize", upd);
   upd();
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains('splash')) return;
+  var sp=document.getElementById('splash'), nm=sp&&sp.querySelector('.sp-name'), h1=document.querySelector('.hero h1'), done=false, t;
+  function finish(){
+    if(done) return; done=true; clearTimeout(t);
+    root.classList.remove('splash');
+    try{sessionStorage.setItem('rg-splash','1')}catch(e){}
+    if(sp&&sp.parentNode) sp.parentNode.removeChild(sp);
+  }
+  if(!sp||!nm||!h1){ finish(); return; }
+  sp.addEventListener('click',finish);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.key==='Enter'||e.key===' ') finish(); });
+  function run(){
+    if(done) return;
+    h1.style.animation='none'; h1.style.opacity='1'; h1.style.transform='none';
+    nm.style.fontSize=getComputedStyle(h1).fontSize;
+    var r0=nm.getBoundingClientRect();
+    var S=Math.min(1.7,(innerWidth*.84)/r0.width);
+    nm.style.transform='translate('+(r0.width*(1-S)/2)+'px,'+(r0.height*(1-S)/2)+'px) scale('+S+')';
+    sp.classList.add('play');
+    t=setTimeout(function(){
+      var hr=h1.getBoundingClientRect();
+      sp.classList.add('go','out');
+      nm.style.transform='translate('+(hr.left-r0.left)+'px,'+(hr.top-r0.top)+'px) scale(1)';
+      t=setTimeout(finish,1000);
+    },1700);
+  }
+  var fonts=(document.fonts&&document.fonts.ready)?Promise.race([document.fonts.ready,new Promise(function(r){setTimeout(r,1500)})]):Promise.resolve();
+  fonts.then(run);
 })();
 </script>
 </body>
