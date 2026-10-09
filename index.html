@@ -576,7 +576,7 @@ table tbody tr,table tr{transition:background .25s}
 .sticky-cta.show{opacity:1; transform:none; pointer-events:auto}
 .sticky-cta:hover{box-shadow:0 14px 36px rgba(255,77,0,.5); transform:translateY(-2px)}
 .sticky-cta svg{width:16px; height:16px; flex:none}
-/* intro splash: the name is written by a pen stroke (like a first-start hello), then flies into the hero headline */
+/* intro splash: the name sweeps in with a clean, smooth reveal, then flies into the hero headline */
 #splash{display:none}
 html.splash,html.splash body{overflow:hidden}
 html.splash #splash{display:block; position:fixed; inset:0; z-index:400; background:var(--bg); cursor:pointer; transition:background-color .95s ease}
@@ -584,11 +584,7 @@ html.splash #splash.out{background-color:transparent}
 html.splash .hero h1{visibility:hidden}
 #spSvg{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
 #spG{transform-origin:0 0}
-#spT{opacity:0; letter-spacing:-.01em; text-transform:uppercase}
-#spPen{fill:#FF4D00; opacity:0; filter:drop-shadow(0 0 .35em rgba(255,77,0,.9))}
-#spBar{stroke:#FF4D00; stroke-dasharray:1; stroke-dashoffset:1; opacity:1; transition:opacity .35s}
-#splash.go #spG{transition:transform .95s cubic-bezier(.65,0,.25,1)}
-#splash.go #spBar{opacity:0}
+#splash.go #spG{transition:transform 1.1s cubic-bezier(.65,0,.25,1)}
 .cta-menu{position:fixed; right:20px; bottom:80px; z-index:81; min-width:220px; padding:10px; background:var(--panel); border:1px solid var(--line); border-radius:14px; box-shadow:0 18px 44px rgba(0,0,0,.55)}
 .cta-menu[hidden]{display:none}
 .cta-menu .cm-t{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; color:var(--mute); padding:6px 12px 8px}
@@ -666,7 +662,7 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="splash" aria-hidden="true"><svg id="spSvg" xmlns="http://www.w3.org/2000/svg"><g id="spG"><text id="spT" font-family="Anton, Impact, sans-serif"><tspan id="spL1">RAMY</tspan><tspan id="spL2">ELGAZAR</tspan></text><g id="spLetters"></g><line id="spBar" pathLength="1"/><circle id="spPen" r="0"/></g></svg></div>
+<div id="splash" aria-hidden="true"><svg id="spSvg" xmlns="http://www.w3.org/2000/svg"><defs id="spDefs"></defs><g id="spG"><g id="spLines"></g></g></svg></div>
 <nav id="tabs" aria-label="Section tabs">
   <div class="tabs-scroll">
     <a href="#intro">Intro</a><a href="#who">Who</a><a href="#standing">Standing</a><a href="#record">Record</a>
@@ -1562,102 +1558,69 @@ footer .social-link{padding:8px 14px; font-size:.76rem}
   if(!root.classList.contains('splash')) return;
   var NS='http://www.w3.org/2000/svg';
   var sp=document.getElementById('splash'), svg=document.getElementById('spSvg'), g=document.getElementById('spG'),
-      tx=document.getElementById('spT'), l1=document.getElementById('spL1'), l2=document.getElementById('spL2'),
-      lay=document.getElementById('spLetters'), bar=document.getElementById('spBar'), pen=document.getElementById('spPen'), h1=document.querySelector('.hero h1'), done=false, t;
-  // pen paths: the skeleton of each Anton capital, in font units (2048 per em, y up)
-  var P={
-    R:['M256,0 L256,1580','M256,1600 L600,1600 C790,1600 770,1580 770,1330 C770,1060 780,900 580,900 L256,900','M740,860 L740,0'],
-    A:['M210,0 L440,1600 L560,1600 L790,0','M150,400 L850,400'],
-    M:['M237,0 L237,1560 L450,1560 L768,200 L1086,1560 L1289,1560 L1289,0'],
-    Y:['M200,1600 L457,950 L457,0','M717,1600 L457,950'],
-    E:['M256,1580 L256,180','M256,1580 L700,1580','M256,870 L650,870','M256,180 L700,180'],
-    L:['M254,1580 L254,180 L700,180'],
-    G:['M762,1330 C762,1560 650,1590 498,1590 C320,1590 238,1400 238,880 C238,360 320,170 498,170 C680,170 764,350 764,640 L764,880 L560,880'],
-    Z:['M100,1580 L740,1580 L100,180 L740,180']
-  };
-  var PEN=440;           // pen width in font units (wider than any stem, so the letter is fully revealed)
-  var WRITE=3.1;         // seconds the pen spends writing
+      defs=document.getElementById('spDefs'), lay=document.getElementById('spLines'), h1=document.querySelector('.hero h1'), done=false, t;
+  var EASE='cubic-bezier(.45,0,.2,1)';
+  var SWEEP=[{start:.25,dur:1.9},{start:1.15,dur:2.5}];   // seconds: RAMY, then ELGAZAR (they overlap, so it flows)
+  var GO=3900;                                           // ms until the name flies to the headline
   function finish(){
     if(done) return; done=true; clearTimeout(t);
     root.classList.remove('splash');
     try{sessionStorage.setItem('rg-splash','1')}catch(e){}
     if(sp&&sp.parentNode) sp.parentNode.removeChild(sp);
   }
-  if(!sp||!svg||!g||!tx||!h1||!lay||!bar){ finish(); return; }
+  if(!sp||!svg||!g||!defs||!lay||!h1){ finish(); return; }
   sp.addEventListener('click',finish);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.key==='Enter'||e.key===' ') finish(); });
   function el(n,a){ var e=document.createElementNS(NS,n); for(var k in a) e.setAttribute(k,a[k]); return e; }
+  function measure(){
+    var rg=document.createRange(); rg.selectNodeContents(h1);
+    var rs=[].filter.call(rg.getClientRects(),function(r){return r.width>1&&r.height>1;});
+    if(rs.length<2) return null;
+    function baselineAt(before){
+      var pr=document.createElement('span'); pr.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';
+      if(before) h1.insertBefore(pr,before); else h1.appendChild(pr);
+      var y=pr.getBoundingClientRect().bottom; h1.removeChild(pr); return y;
+    }
+    return {x1:rs[0].left, y1:baselineAt(h1.querySelector('br')), x2:rs[rs.length-1].left, y2:baselineAt(null)};
+  }
   function run(){
     if(done) return;
     h1.style.animation='none'; h1.style.opacity='1'; h1.style.transform='none';
-    var cs=getComputedStyle(h1), fs=parseFloat(cs.fontSize), vw=innerWidth, vh=innerHeight, k=fs/2048;
-    tx.style.fontSize=fs+'px'; tx.style.fontWeight=cs.fontWeight; tx.style.fontStyle=cs.fontStyle;
-    // where the real headline sits: first and last text line boxes
-    function measure(){
-      var rg=document.createRange(); rg.selectNodeContents(h1);
-      var rs=[].filter.call(rg.getClientRects(),function(r){return r.width>1&&r.height>1;});
-      if(rs.length<2) return null;
-      function baselineAt(before){
-        var pr=document.createElement('span'); pr.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';
-        if(before) h1.insertBefore(pr,before); else h1.appendChild(pr);
-        var y=pr.getBoundingClientRect().bottom; h1.removeChild(pr); return y;
-      }
-      return {x1:rs[0].left, y1:baselineAt(h1.querySelector('br')), x2:rs[rs.length-1].left, y2:baselineAt(null)};
+    var cs=getComputedStyle(h1), fs=parseFloat(cs.fontSize), vw=innerWidth, vh=innerHeight;
+    var m0=measure(); if(!m0){ finish(); return; }
+    var words=['RAMY','ELGAZAR'], xs=[m0.x1,m0.x2], ys=[m0.y1,m0.y2], boxes=[], i;
+    for(i=0;i<2;i++){
+      var tx=el('text',{x:xs[i],y:ys[i],fill:'#f4f4f4','font-family':'Anton, Impact, sans-serif'});
+      tx.style.fontSize=fs+'px'; tx.style.fontWeight=cs.fontWeight; tx.style.fontStyle=cs.fontStyle; tx.style.letterSpacing='-.01em';
+      tx.textContent=words[i];
+      var grp=el('g',{mask:'url(#spm'+i+')'}); grp.appendChild(tx); lay.appendChild(grp);
+      var bb=tx.getBBox(); boxes.push(bb);
+      // the reveal: a slanted edge sweeping left to right across the word
+      var pad=fs*.1, slant=Math.tan(10*Math.PI/180), top=ys[i]-fs*1.4, hgt=fs*2, wdt=bb.width+pad*2+hgt*slant, x0=bb.x-pad;
+      var sk='translate(0 '+ys[i]+') skewX(-10) translate(0 '+(-ys[i])+')';
+      var mk=el('mask',{id:'spm'+i,maskUnits:'userSpaceOnUse',x:-3000,y:-3000,width:9000,height:9000});
+      var mg=el('g',{transform:sk}), rect=el('rect',{x:x0,y:top,width:wdt,height:hgt,fill:'#fff'});
+      mg.appendChild(rect); mk.appendChild(mg); defs.appendChild(mk);
+      // a thin orange edge rides the front of the sweep
+      var lg=el('g',{transform:sk}), edge=el('rect',{x:x0+wdt-fs*.045,y:ys[i]-fs*.98,width:fs*.045,height:fs*1.12,fill:'#FF4D00'});
+      lg.appendChild(edge); g.appendChild(lg);
+      var o={duration:SWEEP[i].dur*1000,delay:SWEEP[i].start*1000,fill:'both',easing:EASE}, from='translateX('+(-wdt)+'px)', to='translateX(0px)';
+      rect.style.transform=from; edge.style.transform=from;
+      rect.animate([{transform:from},{transform:to}],o);
+      edge.animate([{transform:from},{transform:to}],o);
+      var total=o.duration+300;
+      edge.animate([{opacity:0,offset:0},{opacity:1,offset:.04},{opacity:1,offset:(o.duration-60)/total},{opacity:0,offset:1}],{duration:total,delay:o.delay,fill:'both',easing:'linear'});
     }
-    var m0=measure();
-    if(!m0){ finish(); return; }
-    l1.setAttribute('x',m0.x1); l1.setAttribute('y',m0.y1);
-    l2.setAttribute('x',m0.x2); l2.setAttribute('y',m0.y2);
-    var bb=tx.getBBox(), word='RAMYELGAZAR', i, c, j, p, paths=[], total=0;
-    // one real letter per pen-mask, placed exactly where the headline's letters sit
-    for(i=0;i<word.length;i++){
-      c=word.charAt(i);
-      var pos=tx.getStartPositionOfChar(i), mid='spm'+i;
-      var m=el('mask',{id:mid,maskUnits:'userSpaceOnUse',x:-3000,y:-3000,width:9000,height:9000});
-      var mg=el('g',{transform:'translate('+pos.x+' '+pos.y+') scale('+k+' '+(-k)+')'});
-      for(j=0;j<P[c].length;j++){
-        p=el('path',{d:P[c][j],fill:'none',stroke:'#fff','stroke-width':PEN,'stroke-linecap':'round','stroke-linejoin':'round'});
-        p._pos=pos; mg.appendChild(p); paths.push(p);
-      }
-      m.appendChild(mg); lay.appendChild(m);
-      var lt=el('text',{x:pos.x,y:pos.y,fill:'#f4f4f4',mask:'url(#'+mid+')','font-family':'Anton, Impact, sans-serif'});
-      lt.style.fontSize=fs+'px'; lt.style.fontWeight=cs.fontWeight; lt.style.fontStyle=cs.fontStyle;
-      lt.textContent=c; lay.appendChild(lt);
-    }
-    paths.forEach(function(q){ var L=q.getTotalLength(); q._L=L; total+=L; q.setAttribute('stroke-dasharray',L+' '+(L+10)); q.setAttribute('stroke-dashoffset',L); });
-    var gap=.05, speed=total/(WRITE-gap*paths.length), at=0, segs=[];
-    paths.forEach(function(q){
-      var d=q._L/speed; segs.push({q:q,s:at,d:d});
-      q.animate([{strokeDashoffset:q._L},{strokeDashoffset:0}],{duration:d*1000,delay:at*1000,fill:'forwards',easing:'linear'});
-      at+=d+gap;
-    });
-    // an orange pen tip rides the stroke while the letters are written
-    pen.setAttribute('r',fs*.045);
-    var t0=performance.now();
-    (function tip(){
-      if(done) return;
-      var el=(performance.now()-t0)/1000, hit=null, n;
-      for(n=0;n<segs.length;n++){ if(el>=segs[n].s && el<=segs[n].s+segs[n].d+gap){ hit=segs[n]; break; } }
-      if(hit && el<=WRITE+gap){
-        var f=Math.min(1,(el-hit.s)/hit.d), pt=hit.q.getPointAtLength(hit.q._L*f);
-        pen.setAttribute('cx',hit.q._pos.x+pt.x*k); pen.setAttribute('cy',hit.q._pos.y-pt.y*k); pen.style.opacity=1;
-      } else pen.style.opacity=0;
-      if(el<WRITE+.3) requestAnimationFrame(tip); else pen.style.opacity=0;
-    })();
-    bar.setAttribute('x1',bb.x); bar.setAttribute('x2',bb.x+bb.width);
-    bar.setAttribute('y1',bb.y+bb.height+fs*.06); bar.setAttribute('y2',bb.y+bb.height+fs*.06);
-    bar.style.strokeWidth=(fs*.06)+'px';
-    bar.animate([{strokeDashoffset:1},{strokeDashoffset:0}],{duration:550,delay:WRITE*1000+50,fill:'forwards',easing:'cubic-bezier(.65,0,.25,1)'});
-    // big and centred first
-    var S=Math.min(3,(vw*.88)/bb.width,(vh*.6)/bb.height), cx=bb.x+bb.width/2, cy=bb.y+bb.height/2;
+    var bbAll={x:Math.min(boxes[0].x,boxes[1].x), y:boxes[0].y, width:Math.max(boxes[0].width,boxes[1].width), height:boxes[1].y+boxes[1].height-boxes[0].y};
+    var S=Math.min(3,(vw*.88)/bbAll.width,(vh*.6)/bbAll.height), cx=bbAll.x+bbAll.width/2, cy=bbAll.y+bbAll.height/2;
     g.style.transform='translate('+(vw/2-S*cx)+'px,'+(vh/2-S*cy)+'px) scale('+S+')';
     sp.classList.add('play');
     t=setTimeout(function(){
       var m1=measure()||m0;   // the headline may have moved slightly since (late fonts): aim at where it is now
       sp.classList.add('go','out');
       g.style.transform='translate('+(m1.x1-m0.x1)+'px,'+(m1.y1-m0.y1)+'px) scale(1)';
-      t=setTimeout(finish,1000);
-    },3750);
+      t=setTimeout(finish,1150);
+    },GO);
   }
   var fonts=(document.fonts&&document.fonts.ready)?Promise.race([document.fonts.ready,new Promise(function(r){setTimeout(r,1200)})]):Promise.resolve();
   fonts.then(run);
