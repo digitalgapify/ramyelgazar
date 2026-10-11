@@ -1,0 +1,39 @@
+
+/* PAGES: sub-page hero, explore cards, page CTA, per-page splash */
+.phero{padding:clamp(48px,6vw,96px) 0 clamp(28px,3vw,44px); border-bottom:1px solid var(--line)}
+.phero .eyebrow{margin-bottom:18px}
+.phero h1{font-size:clamp(3.4rem,9vw,9rem); margin-bottom:22px}
+.phero .lead{max-width:60ch; color:var(--mute); font-size:clamp(1.05rem,1.3vw,1.25rem)}
+.xgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(16px,1.6vw,26px); margin-top:30px}
+.xcard{display:flex; flex-direction:column; background:var(--panel); border:1px solid var(--line); color:var(--ink); text-decoration:none; overflow:hidden; transition:transform .3s, border-color .3s}
+.xcard:hover,.xcard:focus-visible{transform:translateY(-5px); border-color:var(--o); outline:none}
+.xph{display:block; aspect-ratio:4/3; overflow:hidden; background:#0e0e0e}
+.xph img{width:100%; height:100%; object-fit:cover; object-position:50% 25%; display:block; transition:transform .7s}
+.xcard:hover .xph img{transform:scale(1.06)}
+.xt{font-family:"Anton",Impact,sans-serif; text-transform:uppercase; font-size:1.7rem; line-height:1; padding:20px 22px 6px}
+.xs{color:var(--mute); padding:0 22px; flex:1}
+.xgo{padding:16px 22px 20px; color:var(--o); font:600 .9rem "Barlow Condensed",sans-serif; letter-spacing:.12em; text-transform:uppercase}
+.foot-link{margin-top:26px}
+.pcta{text-align:left}
+#press-teaser .press-ticker{margin-top:26px}
+/* per-page splash: a cover with the page name that wipes away in the page's own direction */
+#psplash{display:none}
+.psp #psplash{display:flex; position:fixed; inset:0; z-index:9999; background:#141414; align-items:center; justify-content:center; pointer-events:none}
+#psplash b{font:400 clamp(4rem,16vw,15rem)/1 "Anton",Impact,sans-serif; text-transform:uppercase; color:#f4f4f4; letter-spacing:-.01em}
+#psplash i{position:absolute; background:var(--o)}
+.psp #psplash{animation:ps-out 1.5s cubic-bezier(.7,0,.2,1) forwards}
+.psp #psplash b{animation:ps-in .7s cubic-bezier(.2,.7,.2,1) both}
+#psplash[data-dir="right"] i{left:0; right:0; top:calc(50% + clamp(2rem,8vw,7.5rem)); height:6px; transform-origin:0 50%; animation:ps-bar-x .8s .1s cubic-bezier(.2,.7,.2,1) both}
+#psplash[data-dir="left"] i{left:0; right:0; top:calc(50% + clamp(2rem,8vw,7.5rem)); height:6px; transform-origin:100% 50%; animation:ps-bar-x .8s .1s cubic-bezier(.2,.7,.2,1) both}
+#psplash[data-dir="up"] i{top:0; bottom:0; left:50%; width:6px; margin-left:-3px; transform-origin:50% 100%; animation:ps-bar-y .8s .1s cubic-bezier(.2,.7,.2,1) both}
+#psplash[data-dir="right"] b{--x:-70px; --y:0px}
+#psplash[data-dir="left"] b{--x:70px; --y:0px}
+#psplash[data-dir="up"] b{--x:0px; --y:70px}
+#psplash[data-dir="right"]{--w:inset(0 0 0 100%)}
+#psplash[data-dir="left"]{--w:inset(0 100% 0 0)}
+#psplash[data-dir="up"]{--w:inset(0 0 100% 0)}
+@keyframes ps-in{from{opacity:0; transform:translate(var(--x),var(--y))}to{opacity:1; transform:none}}
+@keyframes ps-bar-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes ps-bar-y{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes ps-out{0%,60%{clip-path:inset(0 0 0 0)}100%{clip-path:var(--w)}}
+@media(prefers-reduced-motion:reduce){#psplash{display:none!important}}
