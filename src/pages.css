@@ -36,4 +36,13 @@
 @keyframes ps-bar-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes ps-bar-y{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes ps-out{0%,60%{clip-path:inset(0 0 0 0)}100%{clip-path:var(--w)}}
+#psplash[data-dir="down"] i{top:0; bottom:0; left:50%; width:6px; margin-left:-3px; transform-origin:50% 0; animation:ps-bar-y .8s .1s cubic-bezier(.2,.7,.2,1) both}
+#psplash[data-dir="down"] b{--x:0px; --y:-70px}
+#psplash[data-dir="down"]{--w:inset(100% 0 0 0)}
+.crumbs{display:flex; gap:10px; align-items:center; font:600 .8rem "Barlow Condensed",sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); margin-bottom:22px}
+.crumbs a{color:var(--mute); text-decoration:none}.crumbs a:hover{color:var(--o)}
+.crumbs [aria-current]{color:var(--ink)}
+.foot-nav{display:flex; flex-wrap:wrap; gap:8px 22px; margin:0 0 16px}
+.foot-nav a{color:var(--mute); text-decoration:none; font:600 .85rem "Barlow Condensed",sans-serif; letter-spacing:.12em; text-transform:uppercase}
+.foot-nav a:hover{color:var(--o)}
 @media(prefers-reduced-motion:reduce){#psplash{display:none!important}}

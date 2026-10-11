@@ -46,6 +46,12 @@
     <image:image><image:loc>https://ramyelgazar.com/img/ramy-elgazar-film-premiere-screening.jpg</image:loc><image:title>Ramy Elgazar with guests at a film premiere screening</image:title></image:image>
   </url>
   <url>
+    <loc>https://ramyelgazar.com/contact/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ramyelgazar.com/press/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
