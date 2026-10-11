@@ -45,4 +45,16 @@
 .foot-nav{display:flex; flex-wrap:wrap; gap:8px 22px; margin:0 0 16px}
 .foot-nav a{color:var(--mute); text-decoration:none; font:600 .85rem "Barlow Condensed",sans-serif; letter-spacing:.12em; text-transform:uppercase}
 .foot-nav a:hover{color:var(--o)}
+/* Shows: the cover splits down the centre line and the two halves spread wide apart */
+.psp #psplash[data-dir="up"]{background:transparent; animation:ps-hold 1.6s linear forwards}
+#psplash[data-dir="up"]::before,#psplash[data-dir="up"]::after{content:""; position:absolute; top:0; bottom:0; width:50.3%; background:#141414}
+#psplash[data-dir="up"]::before{left:0; animation:ps-half-l 1.6s cubic-bezier(.75,0,.15,1) forwards}
+#psplash[data-dir="up"]::after{right:0; animation:ps-half-r 1.6s cubic-bezier(.75,0,.15,1) forwards}
+#psplash[data-dir="up"] b{position:relative; z-index:2; animation:ps-in .7s cubic-bezier(.2,.7,.2,1) both, ps-wordout .45s .85s ease-in forwards}
+#psplash[data-dir="up"] i{z-index:2; animation:ps-bar-y .8s .1s cubic-bezier(.2,.7,.2,1) both, ps-linefade .25s .85s forwards}
+@keyframes ps-hold{from,to{opacity:1}}
+@keyframes ps-half-l{0%,52%{transform:none}100%{transform:translateX(-102%)}}
+@keyframes ps-half-r{0%,52%{transform:none}100%{transform:translateX(102%)}}
+@keyframes ps-wordout{to{opacity:0; transform:scale(1.18)}}
+@keyframes ps-linefade{to{opacity:0}}
 @media(prefers-reduced-motion:reduce){#psplash{display:none!important}}
