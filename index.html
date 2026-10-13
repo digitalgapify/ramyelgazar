@@ -377,7 +377,7 @@
 (function(){try{var m={who:"/about/",standing:"/about/",road:"/about/",kitchen:"/about/",audience:"/about/",arabic:"/about/",shows:"/shows/",screen:"/shows/",partners:"/shows/",press:"/press/",links:"/press/"},k=location.hash.slice(1);if(m[k]){location.replace(m[k]+"#"+k)}}catch(e){}})();
 </script>
 <script>
-(function(){try{var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){try{var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce), (max-width: 768px)').matches;
 if(!rm&&!location.hash){var d=document.documentElement;d.classList.add('splash');
 try{history.scrollRestoration='manual'}catch(e){}
 window.scrollTo(0,0);setTimeout(function(){d.classList.remove('splash')},6000)}}catch(e){}})();

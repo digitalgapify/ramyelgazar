@@ -130,7 +130,7 @@ def build():
             h+=jsonld+'\n<script>\n(function(){try{var m={who:"/about/",standing:"/about/",road:"/about/",kitchen:"/about/",audience:"/about/",arabic:"/about/",shows:"/shows/",screen:"/shows/",partners:"/shows/",press:"/press/",links:"/press/"},k=location.hash.slice(1);if(m[k]){location.replace(m[k]+"#"+k)}}catch(e){}})();\n</script>\n<script>\n'+boot+'</script>\n'
         else:
             h+=ld_sub(pg,c)
-            h+=f'<script>(function(){{try{{var k="sp:"+location.pathname;if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){{document.documentElement.classList.add("psp");setTimeout(function(){{document.documentElement.classList.remove("psp")}},2600)}}}}catch(e){{}}}})();</script>\n'
+            h+=f'<script>(function(){{try{{var k="sp:"+location.pathname;if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce), (max-width: 768px)").matches)){{document.documentElement.classList.add("psp");setTimeout(function(){{document.documentElement.classList.remove("psp")}},2600)}}}}catch(e){{}}}})();</script>\n'
         h+='</head>\n<body>\n'
         bt=body_top
         bt=re.sub(r'<nav id="tabs".*?</nav>',lambda m:nav(pg),bt,flags=re.S)
